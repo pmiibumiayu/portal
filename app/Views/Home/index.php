@@ -18,7 +18,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light gradient-primary">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark gradient-primary">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Navbar brand -->

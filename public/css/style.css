@@ -1,8 +1,8 @@
 .gradient-primary {
   background: linear-gradient(
     to right,
-    rgba(0, 232, 120, 0.776),
-    rgba(0, 87, 238, 0.9)
+    rgba(106, 17, 203, 0.9),
+    rgba(37, 117, 252, 0.9)
   );
 }
 
