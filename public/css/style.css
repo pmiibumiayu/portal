@@ -1,0 +1,19 @@
+.gradient-primary {
+  background: linear-gradient(
+    to right,
+    rgba(0, 232, 120, 0.776),
+    rgba(0, 87, 238, 0.9)
+  );
+}
+
+/* Default height for small devices */
+#intro-example {
+  height: 400px;
+}
+
+/* Height for devices larger than 992px */
+@media (min-width: 992px) {
+  #intro-example {
+    height: 600px;
+  }
+}
