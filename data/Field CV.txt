@@ -1,0 +1,17 @@
+- email
+- username
+- fullname
+- alamat
+- ttl
+- agama
+- jenis_kelamin
+- prodi
+- fakultas
+- universitas
+- no_hp
+- riwayat_pendidikan
+- histori_organisasi
+- kaderisasi_formal
+- kaderisasi_informal
+- kaderisasi_nonformal
+- photo
