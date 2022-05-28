@@ -14,11 +14,7 @@ class GroupSeeder extends Seeder
                 'description'  => 'Kader PMII'
             ],
             [
-                'name'         => 'rayon',
-                'description'  => 'Pengurus Rayon'
-            ],
-            [
-                'name'         => 'komisariat',
+                'name'         => 'pengurus',
                 'description'  => 'Pengurus Komisariat'
             ],
             [

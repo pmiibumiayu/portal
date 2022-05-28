@@ -1,17 +1,62 @@
-- email
-- username
-- fullname
-- alamat
-- ttl
-- agama
-- jenis_kelamin
-- prodi
-- fakultas
-- universitas
-- no_hp
+- email             => {email}
+- username          => {username}
+- fullname          => {Nama Lengkap}
+- alamat            => {Alamat Lengkap}
+- ttl               => {date}
+- agama             => {Islam / lain}
+- jenis_kelamin     => {Laki-laki / Perempuan}
+- prodi             => {Prodi}
+- fakultas          => {Fakultas}
+- universitas       => {Asal Kampus}
+- no_hp             => {No hp / WA}
 - riwayat_pendidikan
+[
+    > tingkat       => {SD/MI / SMP/MTs / SMA/SMK / PT}
+    > nama          => {nama instansi}
+    > Tahun Masuk   => {Tahun}
+    > Tahun Keluar  => {Tahun} / -
+]
 - histori_organisasi
-- kaderisasi_formal
-- kaderisasi_informal
-- kaderisasi_nonformal
-- photo
+[
+    > Nama          => {Nama Organisasi}
+    > Periode       => {Tahun / Tahun Awal-Tahun Akhir}
+    > Jabatan       => {Amanah yang diemban}
+]
+- kaderisasi
+    > formal
+    [
+        * Jengjang          => {MAPABA / PKD / PKL / PKN}
+        * tanggal           => {date}
+        * Tempat            => {Tempat diselenggarakannya}
+        * Penyelenggara     => {Komisariat / pmii mana}
+        * keterangan        => {Catatan dari kita}
+        * sertifikat        => {File}
+    ]
+    > informal
+    [
+        * nama              => {Nama Kegiatan}
+        * tanggal           => {date}
+        * Tempat            => {Tempat Kegiatan}
+        * keterangan        => {Catatan Dari Kita}
+        * sertifikat        => {File}
+    ]
+    > nonformal
+    [
+        * nama              => {Nama Kegiatan}
+        * tanggal           => {date}
+        * Tempat            => {Tempat Kegiatan}
+        * Penyelenggara     => {Komisariat / pmii mana}
+        * keterangan        => {Catatan Dari Kita}
+        * sertifikat        => {File}
+    ]
+- photo             => {file}
+- file
+    > ktp           => {File}
+    > transkip1     => {File}
+    > transkip2     => {File}
+    > transkip3     => {File}
+    > transkip4     => {File}
+    > transkip5     => {File}
+    > transkip6     => {File}
+    > transkip7     => {File}
+    > transkip8     => {File}
