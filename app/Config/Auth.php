@@ -38,6 +38,7 @@ class Auth extends AuthConfig
 	 */
 	public $views = [
 		'login'		   		=> 'App\Views\Auth\login',
+		// 'login'		   		=> 'Myth\Auth\Views\login',
 		'register'			=> 'App\Views\Auth\register',
 		'forgot'		  	=> 'App\Views\Auth\forgot',
 		'reset'		   		=> 'App\Views\Auth\reset',
@@ -349,4 +350,16 @@ class Auth extends AuthConfig
 	 * @var int
 	 */
 	public $resetTime = 3600;
+
+	/**
+	 * --------------------------------------------------------------------
+	 * Login dengan social media
+	 * --------------------------------------------------------------------
+	 *
+	 * Login dengan akun social media yang telah terdaftat pada platform
+	 * Tersebut, login dengan instan
+	 *
+	 * @var bool
+	 */
+	public $socialLogin = false;
 }

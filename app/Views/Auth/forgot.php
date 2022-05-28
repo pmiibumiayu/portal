@@ -3,33 +3,25 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-6 offset-sm-3">
-
+        <div class="col-md-5 mx-auto">
             <div class="card">
-                <h2 class="card-header"><?=lang('Auth.forgotPassword')?></h2>
-                <div class="card-body">
-
-                    <?= view('App\Auth\_message_block') ?>
-
+                <div class="card-body mx-md-4 mb-4">
+                    <h3 class="card-title mb-6 text-center"><?=lang('Auth.forgotPassword')?></h3>
+                    <?= view('App\Views\Auth\_message_block') ?>
                     <p><?=lang('Auth.enterEmailForInstructions')?></p>
-
                     <form action="<?= route_to('forgot') ?>" method="post">
                         <?= csrf_field() ?>
-
-                        <div class="form-group">
-                            <label for="email"><?=lang('Auth.emailAddress')?></label>
-                            <input type="email" class="form-control <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>"
-                                   name="email" aria-describedby="emailHelp" placeholder="<?=lang('Auth.email')?>">
-                            <div class="invalid-feedback">
-                                <?= session('errors.email') ?>
-                            </div>
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="email" name="email"
+                                class="form-control<?php if(session('errors.email')) : ?> is-invalid<?php endif ?>"
+                                required />
+                            <label class="form-label" for="email"><?=lang('Auth.emailAddress')?></label>
                         </div>
-
-                        <br>
-
-                        <button type="submit" class="btn btn-primary btn-block"><?=lang('Auth.sendInstructions')?></button>
+                        <!-- Submit button -->
+                        <button type="submit"
+                            class="btn btn-primary btn-block mb-4"><?=lang('Auth.sendInstructions')?></button>
                     </form>
-
                 </div>
             </div>
 

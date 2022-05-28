@@ -9,8 +9,8 @@ class TestSeeder extends Seeder
     public function run()
     {
         $this->call('GroupSeeder');
-        // $this->call('UserSeeder');
-        // $this->call('GroupUserSeeder');
+        $this->call('UserSeeder');
+        $this->call('GroupUserSeeder');
         // $this->call('RuteSeeder');
         // $this->call('TiketSeeder');
         // $this->call('RentalSeeder');

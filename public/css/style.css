@@ -6,6 +6,14 @@
   );
 }
 
+.gradient-secondary {
+  background: linear-gradient(
+    to right,
+    rgba(72, 198, 239, 1),
+    rgba(111, 134, 214, 1)
+  );
+}
+
 /* Default height for small devices */
 #intro-example {
   height: 400px;
