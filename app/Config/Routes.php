@@ -57,6 +57,11 @@ $routes->group('', function ($routes) {
     $routes->post('reset-password', 'AuthController::attemptReset');
 });
 
+$routes->group('panel', function ($routes) {
+    // Basic
+    $routes->add('', 'PanelController::index', ['as' => 'dashboard']);
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
