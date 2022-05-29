@@ -15,6 +15,7 @@ class Panel extends BaseConfig
 	 * @var string
 	 */
 	public $viewLayout = [
-        'main'      => 'App\Views\Panel\Layout\main'
+        'main'      	=> 'App\Views\Panel\Layout\Bootstrap5\\',
+        'bootstrap5'    => 'App\Views\Panel\Layout\Bootstrap5\\',
     ];
 }
