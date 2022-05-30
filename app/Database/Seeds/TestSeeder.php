@@ -11,11 +11,11 @@ class TestSeeder extends Seeder
         $this->call('GroupSeeder');
         $this->call('UserSeeder');
         $this->call('GroupUserSeeder');
+        $this->call('MenuSeeder');
         // $this->call('RuteSeeder');
         // $this->call('TiketSeeder');
         // $this->call('RentalSeeder');
         // $this->call('KendaraanSeeder');
-        // $this->call('MenuSeeder');
         // $this->call('TestimoniSeeder');
         // $this->call('PreferensiSeeder');
         // $this->call('DestinasiSeeder');

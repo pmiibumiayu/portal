@@ -20,8 +20,7 @@ $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
-$routes->set404Override(function ()
-{
+$routes->set404Override(function () {
     echo view('errors/404');
 });
 $routes->setAutoRoute(true);
@@ -60,6 +59,10 @@ $routes->group('', function ($routes) {
 $routes->group('panel', function ($routes) {
     // Basic
     $routes->add('', 'PanelController::index', ['as' => 'dashboard']);
+
+    $routes->group('super', function ($routes) {
+        $routes->add('menu', 'PanelController::menu', ['as' => 'super-menu']);
+    });
 });
 
 /*

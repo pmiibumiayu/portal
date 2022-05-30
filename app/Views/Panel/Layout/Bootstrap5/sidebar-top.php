@@ -1,5 +1,5 @@
 <li class="nav-item">
-    <a class="nav-link active" href="#!">
+    <a class="nav-link active" href="<?= route_to('dashboard') ?>">
         <span class="nav-icon">
             <i class="bi bi-house-door"></i>
         </span>
@@ -7,7 +7,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#!">
+    <a class="nav-link" href="<?= route_to('super-menu') ?>">
         <span class="nav-icon">
             <i class="bi bi-list"></i>
         </span>
