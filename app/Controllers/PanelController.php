@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Config\Panel as PanelConfig;
 use App\Models\MenuModel;
+use App\Libraries\Panel\Menu as MenuLibrary;
 
 class PanelController extends BaseController
 {
@@ -38,7 +39,7 @@ class PanelController extends BaseController
     public function menu()
     {
         // Testing
-        // $data    = $this->menumodel->find(3);
+        // $data    = $this->menumodel->find(2);
         // $menu    = $data->menu;
 
         // $menu    = [
@@ -63,22 +64,34 @@ class PanelController extends BaseController
         //         'route'         => 'preferensi',
         //         'type'          => 'multiple',
         //         'sub'           => [
-        //             'order'         => '2',
-        //             'label'         => 'Kontak',
-        //             'title'         => 'Kontak',
-        //             'description'   => 'Kontak yang dapat dihubungi oleh publik',
-        //             'activator'     => 'contact',
-        //             'route'         => 'preferensi-contact',
-        //         ],
+        //             [
+        //                 'order'         => '1',
+        //                 'label'         => 'Profile',
+        //                 'title'         => 'Profile',
+        //                 'description'   => 'Ubah Aturan Pengguna',
+        //                 'activator'     => 'profile',
+        //                 'route'         => 'preferensi-profile',
+        //             ],
+        //             [
+        //                 'order'         => '2',
+        //                 'label'         => 'Kontak',
+        //                 'title'         => 'Kontak',
+        //                 'description'   => 'Kontak yang dapat dihubungi oleh publik',
+        //                 'activator'     => 'contact',
+        //                 'route'         => 'preferensi-contact',
+        //             ],
+        //         ]
         //     ],
         // ];
 
         // $data->menu = $menu;
         // $this->menumodel->save($data);
 
-        // dd($data);
+        // dd(json_encode($data->menu));
 
         $this->data['menu']     = $this->menumodel->findAll();
+        $coba = new MenuLibrary($this->data['menu']);
+        dd($coba);
         return view('Panel\Super\menu', $this->data);
     }
 }
