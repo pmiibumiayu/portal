@@ -28,7 +28,7 @@ class Menu
      */
     protected $encoded = [];
 
-    public function __construct(array $dataset = null)
+    public function __construct(array $dataset = null, bool $encoded = true)
     {
         $this->menumodel        = model('App\Models\MenuModel');
         if ($dataset) {
@@ -37,11 +37,14 @@ class Menu
             $this->dataset  = $this->menumodel->findAll();
         }
         $this->myth             = service('authorization');
-        // $this->encode();
+        if ($encoded) {
+            $this->encode();
+        }
     }
 
     public function encode()
     {
+        $this->encoded = [];
         $data   = $this->dataset;
         foreach ($data as $ds) {
             if (isset($ds->menu) && !empty($ds->menu)) {

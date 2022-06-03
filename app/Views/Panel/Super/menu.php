@@ -31,35 +31,7 @@ d($encmenu);
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table app-table-hover mb-0 text-left">
-                        <thead>
-                            <tr>
-                                <th class="cell">Order</th>
-                                <th class="cell">Icon</th>
-                                <th class="cell">Label</th>
-                                <th class="cell">Route</th>
-                                <th class="cell">Role</th>
-                                <th class="cell">Type</th>
-                                <th class="cell"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="cell">1</td>
-                                <td class="cell text-center"><i class="bi bi-list"></i></td>
-                                <td class="cell">Manajemen Menu</td>
-                                <td class="cell">#!</td>
-                                <td class="cell">
-                                    <span class="badge bg-danger">super</span>
-                                    <span class="badge bg-danger">pengurus</span>
-                                    <span class="badge bg-danger">kader</span>
-                                </td>
-                                <td class="cell"><span class="badge bg-success">Single</span></td>
-                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#!">Edit</a> <a
-                                        class="btn-sm app-btn-secondary" href="#!">Hapus</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="alert alert-primary" role="alert">Anda belum mempunyai data !</div>
                 </div>
             </div>
         </div>
@@ -88,7 +60,7 @@ d($encmenu);
                                 <th class="cell"></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tabsubmenu">
                             <tr>
                                 <td class="cell">1</td>
                                 <td class="cell">Manajemen Menu</td>

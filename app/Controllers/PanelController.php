@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Controllers\Panel\Menu as MenuController;
 use App\Config\Panel as PanelConfig;
 use App\Libraries\Panel\Menu as MenuLibrary;
 

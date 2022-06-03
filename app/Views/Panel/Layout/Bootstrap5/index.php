@@ -84,6 +84,9 @@
     </div>
     <!-- App main -->
 
+    <script>
+    const base_url = `<?= base_url() ?>`;
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -95,6 +98,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.all.min.js"
         integrity="sha256-RhRrbx+dLJ7yhikmlbEyQjEaFMSutv6AzLv3m6mQ6PQ=" crossorigin="anonymous"></script>
     <script src="<?= base_url('js') ?>/app.js"></script>
+    <script src="<?= base_url('js') ?>/panel.js"></script>
 </body>
 
 </html>

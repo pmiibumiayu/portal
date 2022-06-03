@@ -65,6 +65,12 @@ $routes->group('panel', function ($routes) {
     });
 });
 
+$routes->group('api', function ($routes) {
+    $routes->group('menu', ['namespace' => 'App\Controllers\Panel'], function ($routes) {
+        $routes->get('getencmenu', 'Menu::getEncMenu');
+    });
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
