@@ -4,42 +4,8 @@
 <h1 class="app-page-title">Manajemen Menu</h1>
 
 <?php
-$menu2 = [
-    [
-        'order'         => '1',
-        'icon'          => 'list',
-        'label'         => 'Manajemen Menu',
-        'title'         => 'Manajemen Menu',
-        'description'   => 'Manajemen Menu berdasarkan group id',
-        'activator'     => 'menu',
-        'route'         => 'super-menu',
-        'role'          => 'super',
-        'type'          => 'single',
-        'sub'           => [],
-    ],
-    [
-        'order'         => '2',
-        'icon'          => 'list',
-        'label'         => 'Preferensi',
-        'title'         => '',
-        'description'   => 'Ubah setelan web',
-        'activator'     => 'preferensi',
-        'route'         => 'preferensi',
-        'role'          => 'super,pengurus,kader',
-        'type'          => 'multiple',
-        'sub'           => [
-            'order'         => '2',
-            'label'         => 'Kontak',
-            'title'         => 'Kontak',
-            'description'   => 'Kontak yang dapat dihubungi oleh publik',
-            'activator'     => 'contact',
-            'route'         => 'preferensi-contact',
-        ],
-    ],
-];
-
-d($menu[0]->menu);
-d($menu2);
+d($menu);
+d($encmenu);
 ?>
 
 <!-- Tab-title -->
