@@ -24,9 +24,13 @@ d($encmenu);
             <div class="app-card-body">
                 <div class="row g-3 mb-4 align-items-center justify-content-center">
                     <div class="col-auto">
-                        <a class="btn app-btn-secondary" href="#!">
+                        <a class="btn app-btn-secondary btn-add" href="#!">
                             <i class="bi bi-plus-circle"></i>
                             Tambah
+                        </a>
+                        <a class="btn app-btn-secondary reload-menu" href="#!">
+                            <i class="bi bi-arrow-clockwise"></i>
+                            Reload
                         </a>
                     </div>
                 </div>
@@ -41,40 +45,19 @@ d($encmenu);
             <div class="app-card-body">
                 <div class="row g-3 mb-4 align-items-center justify-content-center">
                     <div class="col-auto">
-                        <a class="btn app-btn-secondary" href="#!">
+                        <a class="btn app-btn-secondary btn-add" href="#!">
                             <i class="bi bi-plus-circle"></i>
                             Tambah
+                        </a>
+                        <a class="btn app-btn-secondary reload-menu" href="#!">
+                            <i class="bi bi-arrow-clockwise"></i>
+                            Reload
                         </a>
                     </div>
                 </div>
                 <!--//row-->
                 <div class="table-responsive">
-                    <table class="table app-table-hover mb-0 text-left">
-                        <thead>
-                            <tr>
-                                <th class="cell">Order</th>
-                                <th class="cell">Label</th>
-                                <th class="cell">Deskripsi</th>
-                                <th class="cell">Route</th>
-                                <th class="cell">Sub Of</th>
-                                <th class="cell"></th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabsubmenu">
-                            <tr>
-                                <td class="cell">1</td>
-                                <td class="cell">Manajemen Menu</td>
-                                <td class="cell"><span class="truncate">Kontak yang dapat dihubungi oleh publik</span>
-                                </td>
-                                <td class="cell">#!</td>
-                                <td class="cell">
-                                    <span class="badge bg-danger">menu</span>
-                                </td>
-                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#!">Edit</a> <a
-                                        class="btn-sm app-btn-secondary" href="#!">Hapus</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="alert alert-primary" role="alert">Anda belum mempunyai data !</div>
                 </div>
             </div>
         </div>
