@@ -130,11 +130,19 @@
                             <input type="text" class="form-control" name="route" id="route" placeholder="route">
                             <label for="route">Routes</label>
                         </div>
+                        <div class="form-floating">
+                            <select class="form-select" name="type" id="type" aria-label="Menu Type">
+                                <option selected>Pilih Tipe Menu</option>
+                                <option value="single">Single</option>
+                                <option value="multiple">Multiple</option>
+                            </select>
+                            <label for="type">Works with selects</label>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="modalSubmit">Understood</button>
+                    <button type="button" class="btn btn-primary btn-submit" id="modalSubmit">Understood</button>
                 </div>
             </div>
         </div>
@@ -154,7 +162,7 @@
         integrity="sha256-cHVO4dqZfamRhWD7s4iXyaXWVK10odD+qp4xidFzqTI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.all.min.js"
         integrity="sha256-RhRrbx+dLJ7yhikmlbEyQjEaFMSutv6AzLv3m6mQ6PQ=" crossorigin="anonymous"></script>
-    <script src="<?= base_url('Panel') ?>/menu.js"></script>
+    <script src="<?= base_url('js/panel') ?>/menu.js"></script>
     <script src="<?= base_url('js') ?>/app.js"></script>
     <script src="<?= base_url('js') ?>/panel.js"></script>
 </body>
