@@ -110,6 +110,20 @@
                             Masa Penerimaan Anggota Baru atau kerap disingkat MAPABA merupakan kaderisasi formal awal
                             yang dilewati mahasiswa untuk menjadi anggota PMII. Calon anggota dikenalkan kepada PMII dan
                             dibekali pengetahuan dasar tentang ke-PMII-an.
+                        <p>
+                            Secara umum, tujuan MAPABA adalah membentuk anggota berkualitas
+                            Mu'taqid, yakni anggota yang memiliki keyakinan terhadap organisasi PMII. Secara khusus,
+                            tujuan MAPABA adalah:</p>
+                        <ul>
+                            <li><i class="bi bi-check"></i> Menanamkan keyakinan bahwa ajaran Ahlussunnah wal Jama'ah
+                                (ASWAJA) merupakan prinsip pemahaman,penghayatan, pengamalan dan haluan organisasi.
+                            </li>
+                            <li><i class="bi bi-check"></i> Membentuk keyakinan bahwa PMII adalah organisasi
+                                kemahasiswaan yang paling tepat untuk pengembangan diri.
+                            </li>
+                            <li><i class="bi bi-check"></i> Membentuk keyakinan bahwa PMII adalah organisasi mahasiswa
+                                Islam yang paling tepat untuk memperjuangkan idealisme.</li>
+                        </ul>
                         </p>
                     </div>
                 </div>
@@ -121,17 +135,28 @@
                     <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
                         <h3>Pelatihan Kader Dasar</h3>
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
+                            Pelatihan Kader Dasar atau kerap disingkat PKD adalah jenjang kaderisasi formal kedua (Pasca
+                            MAPABA) di PMII. Di dalam PKD, anggota mendapatkan pemahaman lebih mendalam terkait
+                            Ke-PMII-an dan bertransformasi dari anggota ke kader.
                         </p>
                         <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum
+                            Secara umum PKD bertujuan membentuk kader Mujahid yakni kader ideologis, loyal, militan
+                            serta memiliki komitmen dan integritas terhadap nilainilai PMII. Secara khusus, PKD
+                            bertujuan untuk :
                         </p>
+                        <ul>
+                            <li><i class="bi bi-check"></i> Mengembangkan kualitas diri anggota pasca MAPABA</li>
+                            <li><i class="bi bi-check"></i> Menanamkan komitmen kepada kader untuk mengabdikan diri bagi
+                                kepentingan PMII</li>
+                            <li><i class="bi bi-check"></i> Mengembangkan pengetahuan teoritik dan pengetahuan lapangan
+                                yang
+                                komprehensif</li>
+                            <li><i class="bi bi-check"></i> Mengembangkan kemampuan manajerial dan keterampilan
+                                berorganisasi
+                            </li>
+                            <li><i class="bi bi-check"></i> Menumbuh kembangkan semangat untuk menjadi tauladan, sebagai
+                                contoh moral, intelektual atau sosial kemasyarakatan</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -141,12 +166,27 @@
                     </div>
                     <div class="col-md-8 pt-5" data-aos="fade-up">
                         <h3>Pelatihan Kader Lanjut</h3>
-                        <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe
-                            odit aut quia voluptatem hic voluptas dolor doloremque.</p>
-                        <p>
-                            Suscipit enim et. Ut optio esse quidem quam reiciendis esse odit excepturi. Vel dolores
-                            rerum soluta explicabo vel fugiat eum non.
+                        <p class="fst-italic">
+                            Pelatihan Kader Lanjut atau kerap disingkat PKL adalah jenjang kaderisasi formal ketiga
+                            (Pasca PKD) di PMII.
                         </p>
+                        <p>Secara umum PKL bertujuan membentuk Kader Mujtahid yakni kategori kader pelopor, inovatif dan
+                            kreatif. Secara khusus, PKL bertujuan untuk :
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check"></i> Mengembangkan kualitas diri kader pasca PKD</li>
+                            <li><i class="bi bi-check"></i> Mengembangkan kualitas kepemimpinan pergerakan</li>
+                            <li><i class="bi bi-check"></i> Membangun kader yang mampu merancang strategi gerakan jangka
+                                pendek dan jangka panjang organisasi</li>
+                            <li><i class="bi bi-check"></i> Mematangkan kapasitas kader dalam pengetahuan, sikap, dan
+                                perilaku organisasi</li>
+                            <li><i class="bi bi-check"></i> Meneguhkan orientasi diri kader dalam menentukan ruang gerak
+                                bagi dirinya</li>
+                            <li><i class="bi bi-check"></i> Mempertajam kemampuanan alisis kader tentang peta kawan dan
+                                lawan dalam perjuangan organisasi dan Islam Ahlussunnah wal Jama'ah</li>
+                            <li><i class="bi bi-check"></i> Mengembangkan pribadi yang percaya diri dan mampu menjadi
+                                tauladan bagi kader untuk berjuang bersama dalam Islam Ahlussunnah walJamaah</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -157,17 +197,25 @@
                     <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
                         <h3>Pelatihan Kader Nasional</h3>
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
+                            Pelatihan Kader Nasional atau kerap disingkat PKN adalah jenjang kaderisasi formal keempat
+                            dan terakhir (Pasca PKL) di PMII.
                         </p>
                         <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum
+                            Secara umum PKN bertujuan membentuk Kader Muharrik, yakni kader calon pemimpin yang
+                            berwawasan luas dan berkualitas dengan kategori Kader Penggerak. Secara khusus, PKN
+                            bertujuan untuk :
                         </p>
+                        <ul>
+                            <li><i class="bi bi-check"></i> Mengembangkan kualitas dirikaderpascaPKL</li>
+                            <li><i class="bi bi-check"></i> Menciptakan ideolog organisasi</li>
+                            <li><i class="bi bi-check"></i> Mengidentifikasi ruang gerak PMII saat ini dan masa yang
+                                akan datang</li>
+                            <li><i class="bi bi-check"></i> Melatih strategi untuk meng-counter gerakan lawan dalam
+                                pergerakan dan perjuangan Islam Ahlussunnah wal Jama'ah</li>
+                            <li><i class="bi bi-check"></i> Mengembangkan kader untuk menjadi suri tauladan dalam
+                                memperjuangkan Islam Ahlussunnah wal Jama'ah</li>
+                            <li><i class="bi bi-check"></i> Menanamkan jiwa korsa PMII</li>
+                        </ul>
                     </div>
                 </div>
 
