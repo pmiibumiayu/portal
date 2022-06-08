@@ -9,7 +9,7 @@ class Home extends BaseController
     use ResponseTrait;
     public function index()
     {
-        return view('Home\index');
+        return view('Home\home');
     }
 
     public function show404()
