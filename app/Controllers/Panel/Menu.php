@@ -22,6 +22,17 @@ class Menu extends BaseController
      */
     protected $menuset;
 
+    protected $mainValidationRules = [
+        'order'         => 'required',
+        'icon'          => 'required',
+        'label'         => 'required',
+        'title'         => 'required',
+        'description'   => 'required',
+        'activator'     => 'required',
+        'route'         => 'required',
+        'type'          => 'required',
+    ];
+
     public function __construct()
     {
         $this->menuset = new MenuLib();
@@ -31,6 +42,15 @@ class Menu extends BaseController
     {
         // Generic response method
         return $this->respond($this->menuset->getEncoded(), 200);
+    }
+
+    public function addmain()
+    {
+        if (!$this->validate($this->mainValidationRules)) {
+            return $this->fail($this->validator->getErrors(), 400);
+        }
+
+        return 'Success';
     }
 
     public function formmain()

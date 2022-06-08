@@ -56,7 +56,8 @@ $(document).ready(async function () {
     myModal.primary.show();
   });
   $(".btn-submit").click(async function (e) {
-    $("#menuform").submit();
+    menus.addmain($("#menuform").serializeArray());
+    console.log($("#menuform").serializeArray());
   });
 });
 

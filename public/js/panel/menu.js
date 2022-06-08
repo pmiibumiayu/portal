@@ -56,4 +56,14 @@ class Menu {
   createNothing() {
     return `<div class="alert alert-primary" role="alert">Anda belum mempunyai data !</div>`;
   }
+
+  addmain($data) {
+    console.log($data);
+    $.ajax({
+      data: $data,
+      dataType: "json",
+      url: this.url + "addmain",
+      headers: { "X-Requested-With": "XMLHttpRequest" },
+    });
+  }
 }
