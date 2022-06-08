@@ -37,7 +37,7 @@
     </main>
 
     <?= view('Home/Layout/footer') ?>
-    <?= view('Home/Layout/loader') ?>
+    <?= view('Utils/loader') ?>
     <!-- Vendor JS Files -->
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

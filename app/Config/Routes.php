@@ -32,6 +32,7 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->add('/test', 'Home::test');
 
 $routes->group('', function ($routes) {
     // Login/out
@@ -66,6 +67,7 @@ $routes->group('panel', function ($routes) {
 $routes->group('api', function ($routes) {
     $routes->group('menu', ['namespace' => 'App\Controllers\Panel'], function ($routes) {
         $routes->get('getencmenu', 'Menu::getEncMenu');
+        $routes->get('formmain', 'Menu::formmain');
     });
 });
 

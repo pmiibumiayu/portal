@@ -3,7 +3,7 @@
         <div class="logo">
             <!-- <div> -->
             <h1>
-                <a href="#!"><img src="<?= base_url('img') ?>/logo.png" alt="" class="img-fluid">
+                <a href="#!"><img src="<?= base_url('img') ?>/Logo.png" alt="" class="img-fluid">
                     <span>PORTAL</span>
                 </a>
             </h1>

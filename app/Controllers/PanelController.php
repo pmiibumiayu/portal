@@ -34,13 +34,13 @@ class PanelController extends BaseController
 
     public function index()
     {
-        return view('Panel\dashboard', $this->data);
+        return view('Panel/dashboard', $this->data);
     }
 
     public function menu()
     {
         // $this->menuset->test(1);
         $this->data['encmenu']     = $this->menuset->encode();
-        return view('Panel\Super\menu', $this->data);
+        return view('Panel/Super/menu', $this->data);
     }
 }

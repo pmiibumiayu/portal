@@ -91,55 +91,7 @@
                     <h5 class="modal-title" id="modalsLabel">Modal title</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <div class="form-floating">
-                                    <input type="number" class="form-control" name="order" id="order"
-                                        placeholder="number">
-                                    <label for="order">Order</label>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" name="icon" id="icon" placeholder="number">
-                                    <label for="icon">Icon</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="label" id="label" placeholder="label">
-                            <label for="label">Label</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="title" id="title" placeholder="title">
-                            <label for="title">Judul</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" name="description" placeholder="description"
-                                id="description"></textarea>
-                            <label for="description">Deskripsi</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="activator" id="activator"
-                                placeholder="activator">
-                            <label for="activator">Aktivator</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="route" id="route" placeholder="route">
-                            <label for="route">Routes</label>
-                        </div>
-                        <div class="form-floating">
-                            <select class="form-select" name="type" id="type" aria-label="Menu Type">
-                                <option selected>Pilih Tipe Menu</option>
-                                <option value="single">Single</option>
-                                <option value="multiple">Multiple</option>
-                            </select>
-                            <label for="type">Works with selects</label>
-                        </div>
-                    </form>
-                </div>
+                <div class="modal-body"></div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary btn-submit" id="modalSubmit">Understood</button>
@@ -149,6 +101,7 @@
     </div>
     <!-- App main -->
 
+    <?= view('Utils/loader') ?>
     <script>
     const base_url = `<?= base_url() ?>`;
     </script>
@@ -162,6 +115,10 @@
         integrity="sha256-cHVO4dqZfamRhWD7s4iXyaXWVK10odD+qp4xidFzqTI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.all.min.js"
         integrity="sha256-RhRrbx+dLJ7yhikmlbEyQjEaFMSutv6AzLv3m6mQ6PQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.4/jquery.validate.min.js"
+        integrity="sha512-FOhq9HThdn7ltbK8abmGn60A/EMtEzIzv1rvuh+DqzJtSGq8BRdEN0U+j0iKEIffiw/yEtVuladk6rsG4X6Uqg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?= base_url('js/panel') ?>/modal.js"></script>
     <script src="<?= base_url('js/panel') ?>/menu.js"></script>
     <script src="<?= base_url('js') ?>/app.js"></script>
     <script src="<?= base_url('js') ?>/panel.js"></script>
