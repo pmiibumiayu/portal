@@ -58,12 +58,25 @@ class Menu {
   }
 
   addmain($data) {
-    console.log($data);
-    $.ajax({
-      data: $data,
-      dataType: "json",
-      url: this.url + "addmain",
-      headers: { "X-Requested-With": "XMLHttpRequest" },
-    });
+    return fetch(this.url + "addmain", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      body: $data,
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((res) => res);
+  }
+
+  postData(form) {
+    const data = new URLSearchParams();
+    for (const pair of new FormData(form)) {
+      data.append(pair[0], pair[1]);
+    }
+    return data;
   }
 }

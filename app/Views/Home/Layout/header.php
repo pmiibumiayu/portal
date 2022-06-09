@@ -15,7 +15,8 @@
                 <li><a class="nav-link scrollto" href="#about">Tentang</a></li>
                 <li><a class="nav-link scrollto" href="#features">Kaderisasi</a></li>
                 <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
-                <li><a class="nav-link" href="<?= route_to('dashboard') ?>"><i class="ri-login-box-line"></i> Masuk</a>
+                <li><a class="nav-link justify-content-start" href="<?= route_to('dashboard') ?>"><i
+                            class="ri-login-box-line"></i> Masuk</a>
                 </li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

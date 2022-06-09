@@ -48,9 +48,10 @@ class Menu extends BaseController
     {
         if (!$this->validate($this->mainValidationRules)) {
             return $this->fail($this->validator->getErrors(), 400);
+            // dd($this->validator->getErrors());
         }
 
-        return 'Success';
+        return $this->respondCreated($this->request->getPost());;
     }
 
     public function formmain()
@@ -79,9 +80,9 @@ class Menu extends BaseController
                     [
                         'col'   => '',
                         'type'  => 'text',
-                        'label' => 'icon',
+                        'label' => 'Icon',
                         'attr'  => [
-                            'name'  => 'Icon',
+                            'name'  => 'icon',
                             'required' => true,
                         ],
                     ],
@@ -98,7 +99,7 @@ class Menu extends BaseController
             [
                 'type'  => 'text',
                 'attr' => [
-                    'name'  => 'judul',
+                    'name'  => 'title',
                     'required' => true,
                 ],
                 'label' => 'Judul',
