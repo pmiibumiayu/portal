@@ -57,14 +57,14 @@ class Menu {
     return `<div class="alert alert-primary" role="alert">Anda belum mempunyai data !</div>`;
   }
 
-  addmain($data) {
+  async addmain(data) {
     return fetch(this.url + "addmain", {
       method: "post",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "X-Requested-With": "XMLHttpRequest",
       },
-      body: $data,
+      body: data,
     })
       .then((response) => {
         return response.json();

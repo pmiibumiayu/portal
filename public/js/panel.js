@@ -113,29 +113,17 @@ const refreshsub = async function () {
 
 const addmain = async function () {
   $(".form-control").removeClass("is-invalid").removeClass("is-valid");
-  new Promise((resolve, reject) => {
-    let data = await menus.addmain(
-      menus.postData(document.getElementById("menuform"))
-    );
-    if (data.status == 201) {
-      Object.keys(data.messages).forEach(function (key) {
-        // data.messages[key]
-        $(`form [name="${key}"]`).addClass("is-invalid");
-      });
-      $(".form-control:not(.is-invalid)").addClass("is-valid");
-    } else {
-      console.log("done");
-    }
-    resolve(menus.load());
-  }).then((menu) => {
-    if (menu.length > 0) {
-      tab.mainmenu.html(menus.createHeaderMain());
-      let listmain = "";
-      let tablemain = $("#menus-main tbody");
-      menu.forEach((menu) => (listmain += menus.createMenu(menu)));
-      tablemain.html(listmain);
-    } else {
-      tab.mainmenu.html(menus.createNothing());
-    }
-  });
+  let data = await menus.addmain(
+    menus.postData(document.getElementById("menuform"))
+  );
+  if (data.status == 201) {
+    refreshmain();
+    console.log("done");
+  } else {
+    Object.keys(data.messages).forEach(function (key) {
+      // data.messages[key]
+      $(`form [name="${key}"]`).addClass("is-invalid");
+    });
+    $(".form-control:not(.is-invalid)").addClass("is-valid");
+  }
 };
