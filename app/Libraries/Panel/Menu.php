@@ -22,11 +22,15 @@ class Menu
      */
     protected $dataset;
 
-
     /**
      * @array Menu After Encoded into single array
      */
     protected $encoded = [];
+
+    /**
+     * @array Menu After Decoded into their group
+     */
+    protected $decoded = [];
 
     public function __construct(array $dataset = null, bool $encoded = true)
     {
@@ -65,12 +69,49 @@ class Menu
                 }
             }
         }
-        return $this->encoded;
+        return array_values($this->encoded);
+    }
+
+    public function decode($encoded = null)
+    {
+        $decoded = [];
+        $wadah = [];
+        if ($encoded === null) {
+            $encoded = $this->encoded;
+        }
+        foreach ($encoded as $enc) {
+            foreach ($enc['group'] as $group) {
+                $wadah = $enc;
+                unset($wadah['group']);
+                $decoded[$this->myth->group($group)->id][] = $wadah;
+            }
+        }
+        $this->decoded = $decoded;
+        return $this->decoded;
+    }
+
+    public function add($new)
+    {
+        $this->encoded[] = $new;
+        $this->decode();
+        $this->save();
+        return $this->decoded;
+    }
+
+    public function save()
+    {
+        foreach ($this->decoded as $id => $menu) {
+            $data    = $this->menumodel->find($id);
+            $data->menu = $menu;
+            if ($data->hasChanged()) {
+                $this->menumodel->save($data);
+            }
+        }
     }
 
     public function getEncoded()
     {
-        return $this->encoded;
+        return array_values($this->encoded);
     }
 
     public function test(int $id)

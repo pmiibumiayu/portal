@@ -16,7 +16,7 @@ let opt = {
 };
 const menus = new Menu(opt);
 const modals = new Modal(opt);
-menus.init();
+// menus.init();
 
 const select = (el, all = false) => {
   el = el.trim();
@@ -57,7 +57,7 @@ $(document).ready(async function () {
   }
   await modals.main();
   refreshmain();
-  refreshsub();
+  // refreshsub();
   $("#menus-main .reload-menu").click(async function (e) {
     e.preventDefault();
     await refreshmain();
@@ -70,7 +70,8 @@ $(document).ready(async function () {
     e.preventDefault();
     myModal.utils.title.text("Tambahkan Menu");
     myModal.utils.submit.text("Tambahkan");
-    myModal.utils.body.html(modals.forms.add.main);
+    myModal.utils.body.html(await modals.forms.add.main);
+    VirtualSelect.init({ ele: "select" });
     myModal.primary.show();
   });
   $(".btn-submit").click(async function (e) {
@@ -80,19 +81,16 @@ $(document).ready(async function () {
 
 const refreshmain = async function () {
   tab.mainmenu.html(menus.createLoader());
-  new Promise((resolve, reject) => {
-    resolve(menus.load());
-  }).then((menu) => {
-    if (menu.length > 0) {
-      tab.mainmenu.html(menus.createHeaderMain());
-      let listmain = "";
-      let tablemain = $("#menus-main tbody");
-      menu.forEach((menu) => (listmain += menus.createMenu(menu)));
-      tablemain.html(listmain);
-    } else {
-      tab.mainmenu.html(menus.createNothing());
-    }
-  });
+  let menu = await menus.load();
+  if (menu.length > 0) {
+    tab.mainmenu.html(menus.createHeaderMain());
+    let listmain = "";
+    let tablemain = $("#menus-main tbody");
+    menu.forEach((menu) => (listmain += menus.createMenu(menu)));
+    tablemain.html(listmain);
+  } else {
+    tab.mainmenu.html(menus.createNothing());
+  }
 };
 
 const refreshsub = async function () {
@@ -128,7 +126,7 @@ const addmain = async function () {
       toastr.warning(`${data.messages[key]}`);
       $(`form [name="${key}"]`).addClass("is-invalid");
     });
-    $(".form-control:not(.is-invalid)").addClass("is-valid");
+    $("form .form-control:not(.is-invalid)").addClass("is-valid");
   } else {
     myModal.primary.hide();
     refreshmain();

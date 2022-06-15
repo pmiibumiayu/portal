@@ -7,7 +7,6 @@
 d($menu);
 d($encmenu);
 ?>
-
 <!-- Tab-title -->
 <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
     <a class="flex-sm-fill text-sm-center nav-link active" id="menus-main-tab" data-bs-toggle="tab" href="#menus-main"

@@ -18,6 +18,11 @@ class Menu extends BaseController
     protected $config;
 
     /**
+     * @service Auth Service
+     */
+    protected $auth;
+
+    /**
      * @array Set of menu
      */
     protected $menuset;
@@ -31,11 +36,13 @@ class Menu extends BaseController
         'activator'     => 'required',
         'route'         => 'required',
         'type'          => 'required',
+        'group'          => 'required',
     ];
 
     public function __construct()
     {
         $this->menuset = new MenuLib();
+        $this->auth = service('authorization');
     }
 
     public function getEncMenu()
@@ -51,7 +58,13 @@ class Menu extends BaseController
             // dd($this->validator->getErrors());
         }
 
-        return $this->respondCreated($this->request->getPost());;
+        $data = $this->request->getPost();
+        $data['sub'] = [];
+        $data['group'] = explode(',', $data['group']);
+
+        $save = $this->menuset->add($data);
+
+        return $this->respondCreated($save);
     }
 
     public function formmain()
@@ -140,7 +153,20 @@ class Menu extends BaseController
                 ],
                 'label'     => 'Type Menu',
             ],
+            [
+                'type'      => 'select',
+                'options'   => [],
+                'attr'      => [
+                    'name'  => 'group',
+                    'multiple' => true,
+                    'required' => true,
+                ],
+                'label'     => 'Group',
+            ],
         ];
+        foreach ($this->auth->groups() as $value) {
+            $data[7]['options'][$value->name] = ucwords($value->name);
+        }
         $form = new Form($data, $option);
 
         return $this->respond($form->getForm(), 200);

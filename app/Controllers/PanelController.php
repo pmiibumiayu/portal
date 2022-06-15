@@ -20,6 +20,11 @@ class PanelController extends BaseController
     protected $menuset;
 
     /**
+     * @service Auth Service
+     */
+    protected $auth;
+
+    /**
      * @array Data View
      */
     protected $viewData;
@@ -30,6 +35,7 @@ class PanelController extends BaseController
         $this->menuset          = new MenuLibrary();
         $this->data['menu']     = $this->menuset;
         $this->data['config']   = $this->config;
+        $this->auth = service('authorization');
     }
 
     public function index()
@@ -39,7 +45,8 @@ class PanelController extends BaseController
 
     public function menu()
     {
-        // $this->menuset->test(1);
+        // $this->menuset->test(2);
+        // dd($this->menuset->decode());
         $this->data['encmenu']     = $this->menuset->encode();
         return view('Panel/Super/menu', $this->data);
     }

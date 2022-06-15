@@ -15,10 +15,11 @@
 
     <link rel="stylesheet" href="<?= base_url('css') ?>/portal.css">
     <link rel="stylesheet" href="<?= base_url('css') ?>/style.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css"
         integrity="sha512-oe8OpYjBaDWPt2VmSFR+qYOdnTjeV9QPLJUeqZyprDEQvQLJ9C5PCFclxwNuvb/GQgQngdCXzKSFltuHD3eCxA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="<?= base_url() ?>/virtual-select/virtual-select.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/virtual-select/tooltip.min.css">
 </head>
 
 <body class="app">
@@ -113,7 +114,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
-    <!-- MDB -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"
         integrity="sha256-cHVO4dqZfamRhWD7s4iXyaXWVK10odD+qp4xidFzqTI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.all.min.js"
@@ -130,6 +130,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"
         integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?= base_url() ?>/virtual-select/virtual-select.min.js"></script>
+    <script src="<?= base_url() ?>/virtual-select/tooltip.min.js"></script>
     <script src="<?= base_url('js/panel') ?>/modal.js"></script>
     <script src="<?= base_url('js/panel') ?>/menu.js"></script>
     <script src="<?= base_url('js') ?>/app.js"></script>

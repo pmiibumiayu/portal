@@ -34,7 +34,20 @@ class Menu {
   }
 
   createMenu(menu) {
-    return `<tr><td class="cell">${menu.order}</td><td class="cell text-center"><i class="bi bi-${menu.icon}"></i></td><td class="cell">${menu.label}</td><td class="cell">${menu.route}</td><td class="cell"><span class="badge bg-danger">super</span> <span class="badge bg-danger">pengurus</span> <span class="badge bg-danger">kader</span></td><td class="cell"><span class="badge bg-success">${menu.type}</span></td><td class="cell"><a class="btn-sm app-btn-secondary" href="#!">Edit</a> <a class="btn-sm app-btn-secondary" href="#!">Hapus</a></td></tr>`;
+    let newMenu = `<tr><td class="cell">${menu.order}</td><td class="cell text-center"><i class="bi bi-${menu.icon}"></i></td><td class="cell">${menu.label}</td><td class="cell">${menu.route}</td>`;
+    newMenu += `<td class="cell">`;
+    menu.group.forEach((element) => {
+      newMenu += `<span class="badge bg-`;
+      if (element == "super") {
+        newMenu += "danger";
+      } else {
+        newMenu += "danger";
+      }
+      newMenu += `">${element}</span> `;
+    });
+    newMenu += `</td>`;
+    newMenu += `<td class="cell"><span class="badge bg-success">${menu.type}</span></td><td class="cell"><a class="btn-sm app-btn-secondary" href="#!">Edit</a> <a class="btn-sm app-btn-secondary" href="#!">Hapus</a></td></tr>`;
+    return newMenu;
   }
 
   createMenuSub(label, submenu) {

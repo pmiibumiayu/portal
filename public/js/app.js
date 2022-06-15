@@ -64,3 +64,5 @@ sidePanelClose.addEventListener("click", (e) => {
 sidePanelDrop.addEventListener("click", (e) => {
   sidePanelToggler.click();
 });
+
+VirtualSelect.init({ ele: "select" });
