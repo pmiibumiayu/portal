@@ -26,6 +26,24 @@ const select = (el, all = false) => {
     return document.querySelector(el);
   }
 };
+const toastBs = document.getElementById("toast-bs");
+toastr.options = {
+  closeButton: true,
+  debug: false,
+  newestOnTop: true,
+  progressBar: true,
+  positionClass: "toast-top-right",
+  preventDuplicates: false,
+  onclick: null,
+  showDuration: "300",
+  hideDuration: "1000",
+  timeOut: "5000",
+  extendedTimeOut: "1000",
+  showEasing: "swing",
+  hideEasing: "linear",
+  showMethod: "fadeIn",
+  hideMethod: "fadeOut",
+};
 
 $(document).ready(async function () {
   /**
@@ -57,19 +75,6 @@ $(document).ready(async function () {
   });
   $(".btn-submit").click(async function (e) {
     await addmain();
-    // $(".form-control").removeClass("is-invalid").removeClass("is-valid");
-    // let data = await menus.addmain(
-    //   menus.postData(document.getElementById("menuform"))
-    // );
-    // if (data.status == 201) {
-    //   Object.keys(data.messages).forEach(function (key) {
-    //     // data.messages[key]
-    //     $(`form [name="${key}"]`).addClass("is-invalid");
-    //   });
-    //   $(".form-control:not(.is-invalid)").addClass("is-valid");
-    // } else {
-    //   console.log("done");
-    // }
   });
 });
 
@@ -116,14 +121,17 @@ const addmain = async function () {
   let data = await menus.addmain(
     menus.postData(document.getElementById("menuform"))
   );
-  if (data.status == 201) {
-    refreshmain();
-    console.log("done");
-  } else {
+  console.log(data);
+  if (data.status == 400) {
     Object.keys(data.messages).forEach(function (key) {
       // data.messages[key]
+      toastr.warning(`${data.messages[key]}`);
       $(`form [name="${key}"]`).addClass("is-invalid");
     });
     $(".form-control:not(.is-invalid)").addClass("is-valid");
+  } else {
+    myModal.primary.hide();
+    refreshmain();
+    toastr.success("data berhasil disimpan");
   }
 };
