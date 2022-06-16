@@ -1,7 +1,6 @@
 class Menu {
   constructor(opt = { url: "http://portal.pmii/api/menu/" }) {
     this.url = opt.url;
-    this.mainmenu = this.load();
   }
 
   async init() {
@@ -34,19 +33,17 @@ class Menu {
   }
 
   createMenu(menu) {
-    let newMenu = `<tr><td class="cell">${menu.order}</td><td class="cell text-center"><i class="bi bi-${menu.icon}"></i></td><td class="cell">${menu.label}</td><td class="cell">${menu.route}</td>`;
-    newMenu += `<td class="cell">`;
+    let newMenu = `<tr><td class="cell">${menu.order}</td><td class="cell text-center"><i class="bi bi-${menu.icon}"></i></td><td class="cell">${menu.label}</td><td class="cell">${menu.route}</td><td class="cell">`;
     menu.group.forEach((element) => {
-      newMenu += `<span class="badge bg-`;
-      if (element == "super") {
-        newMenu += "danger";
-      } else {
-        newMenu += "danger";
-      }
-      newMenu += `">${element}</span> `;
+      newMenu += `<span class="badge bg-${
+        element == "super"
+          ? "danger"
+          : element == "pengurus"
+          ? "warning"
+          : "info"
+      }">${element}</span> `;
     });
-    newMenu += `</td>`;
-    newMenu += `<td class="cell"><span class="badge bg-success">${menu.type}</span></td><td class="cell"><a class="btn-sm app-btn-secondary" href="#!">Edit</a> <a class="btn-sm app-btn-secondary" href="#!">Hapus</a></td></tr>`;
+    newMenu += `</td><td class="cell"><span class="badge bg-success">${menu.type}</span></td><td class="cell"><a class="btn-sm app-btn-secondary" href="#!">Edit</a> <a class="btn-sm app-btn-secondary" href="#!">Hapus</a></td></tr>`;
     return newMenu;
   }
 

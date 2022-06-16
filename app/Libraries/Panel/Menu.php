@@ -43,6 +43,7 @@ class Menu
         $this->myth             = service('authorization');
         if ($encoded) {
             $this->encode();
+            $this->decode();
         }
     }
 
@@ -69,12 +70,13 @@ class Menu
                 }
             }
         }
-        return array_values($this->encoded);
+        $this->encoded = $this->encodeArranger($this->encoded);
+        return $this->encoded;
     }
 
     public function decode($encoded = null)
     {
-        $decoded = [];
+        $this->decoded = [];
         $wadah = [];
         if ($encoded === null) {
             $encoded = $this->encoded;
@@ -83,10 +85,10 @@ class Menu
             foreach ($enc['group'] as $group) {
                 $wadah = $enc;
                 unset($wadah['group']);
-                $decoded[$this->myth->group($group)->id][] = $wadah;
+                $this->decoded[$this->myth->group($group)->id][] = $wadah;
             }
         }
-        $this->decoded = $decoded;
+        $this->decoded = $this->decodeArranger($this->decoded);
         return $this->decoded;
     }
 
@@ -111,7 +113,12 @@ class Menu
 
     public function getEncoded()
     {
-        return array_values($this->encoded);
+        return $this->encoded;
+    }
+
+    public function getDecoded()
+    {
+        return $this->decoded;
     }
 
     public function test(int $id)
@@ -166,5 +173,25 @@ class Menu
         $this->menumodel->save($data);
 
         dd(json_encode($data->menu));
+    }
+
+    protected function encodeArranger(array $arr)
+    {
+        $arr = array_values($arr);
+        usort($arr, function ($a, $b) {
+            return $a['order'] <=> $b['order'];
+        });
+        return $arr;
+    }
+
+    protected function decodeArranger(array $arr)
+    {
+        foreach ($arr as $key => $value) {
+            $arr[$key] = array_values($value);
+            usort($arr[$key], function ($a, $b) {
+                return $a['order'] <=> $b['order'];
+            });
+        }
+        return $arr;
     }
 }

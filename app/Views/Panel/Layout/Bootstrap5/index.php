@@ -20,6 +20,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="<?= base_url() ?>/virtual-select/virtual-select.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/virtual-select/tooltip.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/loadingio/ldLoader@v1.0.0/dist/ldld.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/loadingio/ldbutton@v1.0.1/dist/ldbtn.min.css" />
+
 </head>
 
 <body class="app">
@@ -130,6 +133,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"
         integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/loadingio/ldLoader@v1.0.0/dist/ldld.min.js"></script>
     <script src="<?= base_url() ?>/virtual-select/virtual-select.min.js"></script>
     <script src="<?= base_url() ?>/virtual-select/tooltip.min.js"></script>
     <script src="<?= base_url('js/panel') ?>/modal.js"></script>

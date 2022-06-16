@@ -16,7 +16,6 @@ let opt = {
 };
 const menus = new Menu(opt);
 const modals = new Modal(opt);
-// menus.init();
 
 const select = (el, all = false) => {
   el = el.trim();
@@ -44,6 +43,12 @@ toastr.options = {
   showMethod: "fadeIn",
   hideMethod: "fadeOut",
 };
+$.LoadingOverlaySetup({
+  image: "",
+  fontawesome: "bi bi-clock-fill fa-spin",
+  fontawesomeColor: "#202020",
+  background: "rgba(255, 255, 255, 0.5)",
+});
 
 $(document).ready(async function () {
   /**
@@ -57,7 +62,7 @@ $(document).ready(async function () {
   }
   await modals.main();
   refreshmain();
-  // refreshsub();
+  refreshsub();
   $("#menus-main .reload-menu").click(async function (e) {
     e.preventDefault();
     await refreshmain();
@@ -75,43 +80,44 @@ $(document).ready(async function () {
     myModal.primary.show();
   });
   $(".btn-submit").click(async function (e) {
+    $(".modal .btn-submit").LoadingOverlay("show");
     await addmain();
+    $(".modal .btn-submit").LoadingOverlay("hide");
   });
 });
 
 const refreshmain = async function () {
   tab.mainmenu.html(menus.createLoader());
-  let menu = await menus.load();
-  if (menu.length > 0) {
+  await menus.init();
+  if (menus.mainmenu.length > 0) {
     tab.mainmenu.html(menus.createHeaderMain());
     let listmain = "";
     let tablemain = $("#menus-main tbody");
-    menu.forEach((menu) => (listmain += menus.createMenu(menu)));
+    menus.mainmenu.forEach((menu) => (listmain += menus.createMenu(menu)));
     tablemain.html(listmain);
   } else {
     tab.mainmenu.html(menus.createNothing());
   }
+  return "Refresh Main Menu";
 };
 
 const refreshsub = async function () {
   tab.submenu.html(menus.createLoader());
-  new Promise((resolve, reject) => {
-    resolve(menus.load());
-  }).then((menu) => {
+  await menus.init();
+  if (menus.submenu.length > 0) {
     tab.submenu.html(menus.createHeaderSub());
     let listsub = "";
     let tablesub = $("#menus-sub tbody");
-    menu.forEach((m) => {
+    menus.mainmenu.forEach((m) => {
       if (m.type == "multiple") {
         m.sub.forEach((sub) => (listsub += menus.createMenuSub(m.label, sub)));
       }
     });
-    if (listsub.length > 0) {
-      tablesub.html(listsub);
-    } else {
-      tab.submenu.html(menus.createNothing());
-    }
-  });
+    tablesub.html(listsub);
+  } else {
+    tab.submenu.html(menus.createNothing());
+  }
+  return "Refresh Sub Menu";
 };
 
 const addmain = async function () {

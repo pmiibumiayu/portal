@@ -33,8 +33,14 @@ d($encmenu);
                         </a>
                     </div>
                 </div>
-                <div class="table-responsive">
-                    <div class="alert alert-primary" role="alert">Anda belum mempunyai data !</div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col mb-4">
+                            <div class="table-responsive">
+                                <div class="alert alert-primary" role="alert">Anda belum mempunyai data !</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,9 +60,14 @@ d($encmenu);
                         </a>
                     </div>
                 </div>
-                <!--//row-->
-                <div class="table-responsive">
-                    <div class="alert alert-primary" role="alert">Anda belum mempunyai data !</div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col mb-4">
+                            <div class="table-responsive">
+                                <div class="alert alert-primary" role="alert">Anda belum mempunyai data !</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
