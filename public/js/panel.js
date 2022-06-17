@@ -209,7 +209,6 @@ const deletemain = async function () {
   console.log(data);
   if (data.status == 400) {
     Object.keys(data.messages).forEach(function (key) {
-      // data.messages[key]
       toastr.warning(`${data.messages[key]}`);
     });
   } else {

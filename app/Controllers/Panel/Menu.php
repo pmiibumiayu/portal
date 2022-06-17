@@ -76,7 +76,7 @@ class Menu extends BaseController
         $new = false;
 
         $dataset = $this->menuset->getEncoded()[$id];
-        $data = $this->request->getPost();
+        $data = $this->request->getRawInput();
         $data['group'] = explode(',', $data['group']);
 
         foreach ($data as $key => $value) {

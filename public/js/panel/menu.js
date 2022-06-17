@@ -84,7 +84,7 @@ class Menu {
 
   async editmain(id, data) {
     return fetch(this.url + "editmain/" + id, {
-      method: "post",
+      method: "patch",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "X-Requested-With": "XMLHttpRequest",
@@ -99,7 +99,7 @@ class Menu {
 
   async deletemain(id) {
     return fetch(this.url + "deletemain/" + id, {
-      method: "post",
+      method: "delete",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
         "X-Requested-With": "XMLHttpRequest",
