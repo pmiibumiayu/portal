@@ -100,6 +100,20 @@ $(document).ready(async function () {
     await editmain();
     $(".modal .btn-submit").LoadingOverlay("hide");
   });
+  $("#menus-main").on("click", ".btn-delete", async function () {
+    idSender = $(this).data("id");
+    myModal.utils.title.text("Edit Menu");
+    myModal.utils.submit.attr("id", "submit-main-delete").text("Konfirmasi");
+    myModal.utils.body.html(
+      `<p>Apakah anda yakin ingin menghapus item ini ?</p>`
+    );
+    myModal.primary.show();
+  });
+  $(".modal").on("click", "#submit-main-delete", async function () {
+    $(".modal .btn-submit").LoadingOverlay("show");
+    await deletemain();
+    $(".modal .btn-submit").LoadingOverlay("hide");
+  });
   $("#menus-sub .reload-menu").click(async function (e) {
     e.preventDefault();
     $(this).LoadingOverlay("show");
@@ -173,20 +187,35 @@ const editmain = async function () {
       menus.postData(document.getElementById("menuform"))
     );
     console.log(data);
-    // if (data.status == 400) {
-    //   Object.keys(data.messages).forEach(function (key) {
-    //     // data.messages[key]
-    //     toastr.warning(`${data.messages[key]}`);
-    //     $(`form [name="${key}"]`).addClass("is-invalid");
-    //   });
-    //   $("form .form-control:not(.is-invalid)").addClass("is-valid");
-    // } else {
-    //   myModal.primary.hide();
-    //   refreshmain();
-    //   toastr.success("data berhasil disimpan");
-    // }
+    if (data.status == 400) {
+      Object.keys(data.messages).forEach(function (key) {
+        // data.messages[key]
+        toastr.warning(`${data.messages[key]}`);
+        $(`form [name="${key}"]`).addClass("is-invalid");
+      });
+      $("form .form-control:not(.is-invalid)").addClass("is-valid");
+    } else {
+      myModal.primary.hide();
+      refreshmain();
+      toastr.success("data berhasil disimpan");
+    }
   } else {
     toastr.warning(`Tidak ada data yang berubah`);
+  }
+};
+
+const deletemain = async function () {
+  let data = await menus.deletemain(idSender);
+  console.log(data);
+  if (data.status == 400) {
+    Object.keys(data.messages).forEach(function (key) {
+      // data.messages[key]
+      toastr.warning(`${data.messages[key]}`);
+    });
+  } else {
+    myModal.primary.hide();
+    refreshmain();
+    toastr.success("data berhasil dihapus");
   }
 };
 

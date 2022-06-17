@@ -97,6 +97,20 @@ class Menu {
       .then((res) => res);
   }
 
+  async deletemain(id) {
+    return fetch(this.url + "deletemain/" + id, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((res) => res);
+  }
+
   editValidator(id, formValue) {
     let success = false;
     formValue.some((v) => {

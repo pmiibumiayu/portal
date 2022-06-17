@@ -69,7 +69,8 @@ $routes->group('api', function ($routes) {
         $routes->get('getencmenu', 'Menu::getEncMenu');
         $routes->get('formmain', 'Menu::formmain');
         $routes->post('addmain', 'Menu::addmain');
-        $routes->add('editmain/(:num)', 'Menu::editmain/$1');
+        $routes->post('editmain/(:num)', 'Menu::editmain/$1');
+        $routes->add('deletemain/(:num)', 'Menu::deletemain/$1');
     });
 });
 

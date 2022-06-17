@@ -76,7 +76,7 @@ class Menu
 
     public function decode($encoded = null)
     {
-        $this->decoded = [];
+        $this->decoded = [1 => [], 2 => [], 3 => []];
         $wadah = [];
         if ($encoded === null) {
             $encoded = $this->encoded;
@@ -95,6 +95,24 @@ class Menu
     public function add($new)
     {
         $this->encoded[] = $new;
+        $this->decode();
+        $this->save();
+        return $this->decoded;
+    }
+
+    public function edit(int $id, $edited)
+    {
+        foreach ($edited as $key => $value) {
+            $this->encoded[$id][$key] = $value;
+        }
+        $this->decode();
+        $this->save();
+        return $this->decoded;
+    }
+
+    public function delete(int $id)
+    {
+        unset($this->encoded[$id]);
         $this->decode();
         $this->save();
         return $this->decoded;

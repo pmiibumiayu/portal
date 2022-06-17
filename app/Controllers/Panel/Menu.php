@@ -71,16 +71,36 @@ class Menu extends BaseController
     {
         if (!$this->validate($this->mainValidationRules)) {
             return $this->fail($this->validator->getErrors(), 400);
-            // dd($this->validator->getErrors());
         }
 
+        $new = false;
+
+        $dataset = $this->menuset->getEncoded()[$id];
         $data = $this->request->getPost();
         $data['group'] = explode(',', $data['group']);
-        return $this->respond($data, 200);
 
-        $save = $this->menuset->add($data);
+        foreach ($data as $key => $value) {
+            if ($value != $dataset[$key]) {
+                $new = true;
+                break;
+            }
+        }
 
-        return $this->respondCreated($save);
+        if ($new) {
+            $save = $this->menuset->edit($id, $data);
+            return $this->respond($save, 200);
+        }
+        return $this->fail('Tidak ada data yang berubah !', 400);
+    }
+
+    public function deletemain($id)
+    {
+        try {
+            $save = $this->menuset->delete($id);
+            return $this->respond($save, 200);
+        } catch (\Throwable $th) {
+            return $this->fail($th, 400);
+        }
     }
 
     public function formmain()
