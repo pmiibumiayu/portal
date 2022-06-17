@@ -14,6 +14,7 @@ tab = {
 let opt = {
   url: base_url + `/api/menu/`,
 };
+let idSender = 0;
 const menus = new Menu(opt);
 const modals = new Modal(opt);
 
@@ -65,24 +66,45 @@ $(document).ready(async function () {
   refreshsub();
   $("#menus-main .reload-menu").click(async function (e) {
     e.preventDefault();
+    $(this).LoadingOverlay("show");
     await refreshmain();
-  });
-  $("#menus-sub .reload-menu").click(async function (e) {
-    e.preventDefault();
-    await refreshsub();
+    $(this).LoadingOverlay("hide");
   });
   $("#menus-main .btn-add").click(async function (e) {
     e.preventDefault();
     myModal.utils.title.text("Tambahkan Menu");
-    myModal.utils.submit.text("Tambahkan");
+    myModal.utils.submit.attr("id", "submit-main-add").text("Tambahkan");
     myModal.utils.body.html(await modals.forms.add.main);
-    VirtualSelect.init({ ele: "select" });
+    await selectTransformer("form select");
     myModal.primary.show();
   });
-  $(".btn-submit").click(async function (e) {
+  $(".modal").on("click", "#submit-main-add", async function () {
     $(".modal .btn-submit").LoadingOverlay("show");
     await addmain();
     $(".modal .btn-submit").LoadingOverlay("hide");
+  });
+  $("#menus-main").on("click", ".btn-edit", async function () {
+    idSender = $(this).data("id");
+    let menuParser = menus.mainmenu[idSender];
+    myModal.utils.title.text("Edit Menu");
+    myModal.utils.submit.attr("id", "submit-main-edit").text("Simpan");
+    myModal.utils.body.html(await modals.forms.add.main);
+    Object.keys(menuParser).forEach(function (key) {
+      $(`form [name=${key}]`).val(menuParser[key]);
+    });
+    await selectTransformer("form select");
+    myModal.primary.show();
+  });
+  $(".modal").on("click", "#submit-main-edit", async function () {
+    $(".modal .btn-submit").LoadingOverlay("show");
+    await editmain();
+    $(".modal .btn-submit").LoadingOverlay("hide");
+  });
+  $("#menus-sub .reload-menu").click(async function (e) {
+    e.preventDefault();
+    $(this).LoadingOverlay("show");
+    await refreshsub();
+    $(this).LoadingOverlay("hide");
   });
 });
 
@@ -93,7 +115,9 @@ const refreshmain = async function () {
     tab.mainmenu.html(menus.createHeaderMain());
     let listmain = "";
     let tablemain = $("#menus-main tbody");
-    menus.mainmenu.forEach((menu) => (listmain += menus.createMenu(menu)));
+    menus.mainmenu.forEach(
+      (menu, i) => (listmain += menus.createMenu(i, menu))
+    );
     tablemain.html(listmain);
   } else {
     tab.mainmenu.html(menus.createNothing());
@@ -138,4 +162,37 @@ const addmain = async function () {
     refreshmain();
     toastr.success("data berhasil disimpan");
   }
+};
+
+const editmain = async function () {
+  $(".form-control").removeClass("is-invalid").removeClass("is-valid");
+  validate = menus.editValidator(idSender, $("#menuform").serializeArray());
+  if (validate) {
+    let data = await menus.editmain(
+      idSender,
+      menus.postData(document.getElementById("menuform"))
+    );
+    console.log(data);
+    // if (data.status == 400) {
+    //   Object.keys(data.messages).forEach(function (key) {
+    //     // data.messages[key]
+    //     toastr.warning(`${data.messages[key]}`);
+    //     $(`form [name="${key}"]`).addClass("is-invalid");
+    //   });
+    //   $("form .form-control:not(.is-invalid)").addClass("is-valid");
+    // } else {
+    //   myModal.primary.hide();
+    //   refreshmain();
+    //   toastr.success("data berhasil disimpan");
+    // }
+  } else {
+    toastr.warning(`Tidak ada data yang berubah`);
+  }
+};
+
+const selectTransformer = async function (selector) {
+  VirtualSelect.init({
+    ele: `${selector} `,
+    maxWidth: "100%",
+  });
 };

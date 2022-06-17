@@ -47,6 +47,9 @@ class PanelController extends BaseController
     {
         // $this->menuset->test(2);
         // dd($this->menuset->decode());
+        // $data     = $this->menuset->encode();
+        // $data[array_search("super-user", array_column($data, 'activator',))] = [];
+        // dd($data);
         $this->data['encmenu']     = $this->menuset->encode();
         return view('Panel/Super/menu', $this->data);
     }

@@ -67,6 +67,22 @@ class Menu extends BaseController
         return $this->respondCreated($save);
     }
 
+    public function editmain($id)
+    {
+        if (!$this->validate($this->mainValidationRules)) {
+            return $this->fail($this->validator->getErrors(), 400);
+            // dd($this->validator->getErrors());
+        }
+
+        $data = $this->request->getPost();
+        $data['group'] = explode(',', $data['group']);
+        return $this->respond($data, 200);
+
+        $save = $this->menuset->add($data);
+
+        return $this->respondCreated($save);
+    }
+
     public function formmain()
     {
         $option = [

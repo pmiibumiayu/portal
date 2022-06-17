@@ -32,7 +32,7 @@ class Menu {
       .then((menu) => menu);
   }
 
-  createMenu(menu) {
+  createMenu(id, menu) {
     let newMenu = `<tr><td class="cell">${menu.order}</td><td class="cell text-center"><i class="bi bi-${menu.icon}"></i></td><td class="cell">${menu.label}</td><td class="cell">${menu.route}</td><td class="cell">`;
     menu.group.forEach((element) => {
       newMenu += `<span class="badge bg-${
@@ -43,7 +43,7 @@ class Menu {
           : "info"
       }">${element}</span> `;
     });
-    newMenu += `</td><td class="cell"><span class="badge bg-success">${menu.type}</span></td><td class="cell"><a class="btn-sm app-btn-secondary" href="#!">Edit</a> <a class="btn-sm app-btn-secondary" href="#!">Hapus</a></td></tr>`;
+    newMenu += `</td><td class="cell"><span class="badge bg-success">${menu.type}</span></td><td class="cell"><a class="btn-sm app-btn-secondary btn-edit" data-id="${id}" href="#!">Edit</a> <a class="btn-sm app-btn-secondary btn-delete" data-id="${id}" href="#!">Hapus</a></td></tr>`;
     return newMenu;
   }
 
@@ -80,6 +80,32 @@ class Menu {
         return response.json();
       })
       .then((res) => res);
+  }
+
+  async editmain(id, data) {
+    return fetch(this.url + "editmain/" + id, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      body: data,
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((res) => res);
+  }
+
+  editValidator(id, formValue) {
+    let success = false;
+    formValue.some((v) => {
+      if (this.mainmenu[id][v.name] != v.value) {
+        success = true;
+        return;
+      }
+    });
+    return success;
   }
 
   postData(form) {

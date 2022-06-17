@@ -68,8 +68,8 @@ $routes->group('api', function ($routes) {
     $routes->group('menu', ['namespace' => 'App\Controllers\Panel'], function ($routes) {
         $routes->get('getencmenu', 'Menu::getEncMenu');
         $routes->get('formmain', 'Menu::formmain');
-        $routes->get('addmain', 'Menu::addmain');
         $routes->post('addmain', 'Menu::addmain');
+        $routes->add('editmain/(:num)', 'Menu::editmain/$1');
     });
 });
 
