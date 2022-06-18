@@ -61,9 +61,8 @@ $(document).ready(async function () {
       preloader.remove();
     });
   }
-  await modals.main();
-  refreshmain();
-  refreshsub();
+  await modals.init();
+  refreshAll();
   $("#menus-main .reload-menu").click(async function (e) {
     e.preventDefault();
     $(this).LoadingOverlay("show");
@@ -72,7 +71,7 @@ $(document).ready(async function () {
   });
   $("#menus-main .btn-add").click(async function (e) {
     e.preventDefault();
-    myModal.utils.title.text("Tambahkan Menu");
+    myModal.utils.title.text("Tambahkan Main Menu");
     myModal.utils.submit.attr("id", "submit-main-add").text("Tambahkan");
     myModal.utils.body.html(await modals.forms.add.main);
     await selectTransformer("form select");
@@ -86,7 +85,7 @@ $(document).ready(async function () {
   $("#menus-main").on("click", ".btn-edit", async function () {
     idSender = $(this).data("id");
     let menuParser = menus.mainmenu[idSender];
-    myModal.utils.title.text("Edit Menu");
+    myModal.utils.title.text("Edit Main Menu");
     myModal.utils.submit.attr("id", "submit-main-edit").text("Simpan");
     myModal.utils.body.html(await modals.forms.add.main);
     Object.keys(menuParser).forEach(function (key) {
@@ -102,7 +101,7 @@ $(document).ready(async function () {
   });
   $("#menus-main").on("click", ".btn-delete", async function () {
     idSender = $(this).data("id");
-    myModal.utils.title.text("Edit Menu");
+    myModal.utils.title.text("Hapus Main Menu");
     myModal.utils.submit.attr("id", "submit-main-delete").text("Konfirmasi");
     myModal.utils.body.html(
       `<p>Apakah anda yakin ingin menghapus item ini ?</p>`
@@ -119,6 +118,14 @@ $(document).ready(async function () {
     $(this).LoadingOverlay("show");
     await refreshsub();
     $(this).LoadingOverlay("hide");
+  });
+  $("#menus-sub .btn-add").click(async function (e) {
+    e.preventDefault();
+    myModal.utils.title.text("Tambahkan Sub Menu");
+    myModal.utils.submit.attr("id", "submit-sub-add").text("Tambahkan");
+    myModal.utils.body.html(await modals.forms.add.sub);
+    await selectTransformer("form select");
+    myModal.primary.show();
   });
 });
 
@@ -143,6 +150,7 @@ const refreshsub = async function () {
   tab.submenu.html(menus.createLoader());
   await menus.init();
   if (menus.submenu.length > 0) {
+    $("#menus-sub .btn-add").removeClass("disabled");
     tab.submenu.html(menus.createHeaderSub());
     let listsub = "";
     let tablesub = $("#menus-sub tbody");
@@ -153,8 +161,15 @@ const refreshsub = async function () {
     });
     tablesub.html(listsub);
   } else {
+    $("#menus-sub .btn-add").addClass("disabled");
     tab.submenu.html(menus.createNothing());
   }
+  return "Refresh Sub Menu";
+};
+
+const refreshAll = async function () {
+  await refreshmain();
+  await refreshsub();
   return "Refresh Sub Menu";
 };
 
@@ -173,7 +188,7 @@ const addmain = async function () {
     $("form .form-control:not(.is-invalid)").addClass("is-valid");
   } else {
     myModal.primary.hide();
-    refreshmain();
+    refreshAll();
     toastr.success("data berhasil disimpan");
   }
 };
@@ -196,7 +211,7 @@ const editmain = async function () {
       $("form .form-control:not(.is-invalid)").addClass("is-valid");
     } else {
       myModal.primary.hide();
-      refreshmain();
+      refreshAll();
       toastr.success("data berhasil disimpan");
     }
   } else {
@@ -213,7 +228,7 @@ const deletemain = async function () {
     });
   } else {
     myModal.primary.hide();
-    refreshmain();
+    refreshAll();
     toastr.success("data berhasil dihapus");
   }
 };

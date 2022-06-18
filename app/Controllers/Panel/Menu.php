@@ -207,4 +207,109 @@ class Menu extends BaseController
 
         return $this->respond($form->getForm(), 200);
     }
+
+    public function formsub()
+    {
+        $option = [
+            'form'      => [
+                'method'    => 'POST',
+                'id'        => 'menuform',
+            ],
+            'url'       => '#!',
+            'type'      => 'normal',
+        ];
+        $data = [
+            [
+                'type'  => 'group',
+                'field' => [
+                    [
+                        'col'   => '',
+                        'type'  => 'number',
+                        'label' => 'Order',
+                        'attr'  => [
+                            'name'  => 'order',
+                            'required' => true,
+                        ],
+                    ],
+                    [
+                        'col'   => '',
+                        'type'  => 'text',
+                        'label' => 'Icon',
+                        'attr'  => [
+                            'name'  => 'icon',
+                            'required' => true,
+                        ],
+                    ],
+                ],
+            ],
+            [
+                'type'  => 'text',
+                'attr' => [
+                    'name'  => 'label',
+                    'required' => true,
+                ],
+                'label' => 'Label',
+            ],
+            [
+                'type'  => 'text',
+                'attr' => [
+                    'name'  => 'title',
+                    'required' => true,
+                ],
+                'label' => 'Judul',
+            ],
+            [
+                'type'  => 'textarea',
+                'attr' => [
+                    'name'  => 'description',
+                    'required' => true,
+                ],
+                'label' => 'Deskripsi',
+            ],
+            [
+                'type'  => 'text',
+                'attr' => [
+                    'name'  => 'activator',
+                    'required' => true,
+                ],
+                'label' => 'Aktivator',
+            ],
+            [
+                'type'  => 'text',
+                'attr' => [
+                    'name'  => 'route',
+                    'required' => true,
+                ],
+                'label' => 'Route',
+            ],
+            [
+                'type'      => 'select',
+                'options'   => [
+                    'single'        => 'Single',
+                    'multiple'      => 'Multiple',
+                ],
+                'attr'      => [
+                    'name'  => 'type',
+                    'required' => true,
+                ],
+                'label'     => 'Type Menu',
+            ],
+            [
+                'type'      => 'select',
+                'options'   => [],
+                'attr'      => [
+                    'name'  => 'group',
+                    'multiple' => true,
+                    'required' => true,
+                ],
+                'label'     => 'Group',
+            ],
+        ];
+        foreach ($this->auth->groups() as $value) {
+            $data[7]['options'][$value->name] = ucwords($value->name);
+        }
+        $form = new Form($data, $option);
+
+        return $this->respond($form->getForm(), 200);
+    }
 }

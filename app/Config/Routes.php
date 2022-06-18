@@ -67,10 +67,13 @@ $routes->group('panel', function ($routes) {
 $routes->group('api', function ($routes) {
     $routes->group('menu', ['namespace' => 'App\Controllers\Panel'], function ($routes) {
         $routes->get('getencmenu', 'Menu::getEncMenu');
+        // Main Menu
         $routes->get('formmain', 'Menu::formmain');
         $routes->post('addmain', 'Menu::addmain');
         $routes->patch('editmain/(:num)', 'Menu::editmain/$1');
         $routes->delete('deletemain/(:num)', 'Menu::deletemain/$1');
+        // Sub Menu
+        $routes->get('formsub', 'Menu::formsub');
     });
 });
 
